@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-config
+data:
+  DATASOURCE_URL: jdbc:postgresql://postgres/myapp
+  DATASOURCE_USERNAME: myuser
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: user-secret
+type: Opaque
+data:
+  DATASOURCE_PASSWORD: cGFzc3dk

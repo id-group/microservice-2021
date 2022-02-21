@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-config
+data:
+  DATASOURCE_URL: {{ printf "jdbc:postgresql://%s:%s/%s" (include "postgresql.fullname" .) .Values.postgresql.service.port .Values.postgresql.postgresqlDatabase }}
+  DATASOURCE_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: user-secret
+type: Opaque
+data:
+  DATASOURCE_PASSWORD: cGFzc3dk
