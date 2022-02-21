@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "13f9ae97-2e88-42ae-95b1-d6e34c6ac843",
+		"name": "OTUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "arch",
+			"item": [
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

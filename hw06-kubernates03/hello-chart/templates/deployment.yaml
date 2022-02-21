@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hello-chart.fullname" . }}
+  labels:
+    {{- include "hello-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "hello-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "hello-chart.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          ports:
+            - name: web
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: DATASOURCE_URL
+            - name: DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: DATASOURCE_USERNAME
+            - name: DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: DATASOURCE_PASSWORD
+
