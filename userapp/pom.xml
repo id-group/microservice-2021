@@ -127,53 +127,6 @@
                         </excludes>
                     </resource>
                 </resources>
-
-                <plugins>
-<!--
-                    <plugin>
-                        <groupId>com.spotify</groupId>
-                        <artifactId>dockerfile-maven-plugin</artifactId>
-                        <version>1.4.13</version>
-                        <executions>
-                            <execution>
-                                <id>docker build ...</id>
-                                <goals>
-                                    <goal>build</goal>
-                                    <goal>tag</goal>
-                                    <goal>push</goal>
-                                </goals>
-                                <phase>install</phase>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <dockerfile>${project.basedir}/Dockerfile</dockerfile>
-                            <repository>idgroup/otus/userapp</repository>
-                            <buildArgs>
-                                <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                            </buildArgs>
-                        </configuration>
-                    </plugin>
--->
-
-<!--
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <configuration>
-                            <mainClass>online.esb24.grando.dymoff.DymoffApplication</mainClass>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>repackage</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
--->
-
-                </plugins>
-
             </build>
         </profile>
 
